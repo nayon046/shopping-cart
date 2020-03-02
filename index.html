@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="btn-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="inputval" type="text" class="form-control text-center" value="1">
+                           <button id="btn-add" class="btn btn-default"><i  class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$<span id="firstMobilePrice">1219</span></h5>
+                        <img id="removeItemOne" src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="btn-minus2" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="inputval2" type="text" class="form-control text-center" value="1">
+                           <button id="btn-add2" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$<span id="secondMobilePrice">59</span></h5>
+                        <img id="removeItemTwo" src="images/remove.png" alt="" class="remove-item2">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$<span id="subTotalPrice">1278</span></h5>
+                        <h5>$0</h5>
+                        <h5>$<span id="totalPrice">1278</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+
+<script>
+
+
+   
+  
+   
+	//First Mibile Price
+
+   const btnAdd = document.getElementById("btn-add");
+	btnAdd.addEventListener("click",function(){
+
+      const inputVal = document.getElementById("inputval").value++;
+
+      const firstSingleValue = document.getElementById("firstMobilePrice").innerText;
+      const firstParseValue  = parseFloat(firstSingleValue);
+      const firstSingleTotal = firstParseValue + 1219;
+
+      document.getElementById("firstMobilePrice").innerText = firstSingleTotal;
+
+      const firstSubTotal = document.getElementById("subTotalPrice").innerText;
+      const parseSubTotal  = parseFloat(firstSubTotal);
+      const firstTotal = parseSubTotal + 1219;
+
+      document.getElementById("subTotalPrice").innerText = firstTotal;
+      document.getElementById("totalPrice").innerText = firstTotal;
+
+	})
+
+
+   const btnMinus = document.getElementById("btn-minus");
+	btnMinus.addEventListener("click",function(){
+
+      const inputValMinus = document.getElementById("inputval");
+
+      if(inputValMinus.value <=0 && minusValue<=0){
+         inputValMinus.value = 0;
+         minusValue = 0;
+         }
+         else{
+            inputValMinus.value--;
+         };
+
+      const firstMinusValue = document.getElementById("firstMobilePrice").innerText;
+      const firstMinusParseValue  = parseFloat(firstMinusValue);
+      const firstMinusValueTotal = firstMinusParseValue - 1219;
+
+      document.getElementById("firstMobilePrice").innerText = firstMinusValueTotal;
+
+      const firstMinusSubTotal = document.getElementById("subTotalPrice").innerText;
+      const parseMinusSubTotal  = parseFloat(firstMinusSubTotal);
+      const minusValue = parseMinusSubTotal - 1219;
+
+      document.getElementById("subTotalPrice").innerText = minusValue;
+      document.getElementById("totalPrice").innerText = minusValue;
+	})
+
+
+	//Senond Mobile Price
+
+   const btnAdd2 = document.getElementById("btn-add2");
+	btnAdd2.addEventListener("click",function(){
+
+      const inputVal = document.getElementById("inputval2").value++;
+
+      const firstSecondValue = document.getElementById("secondMobilePrice").innerText;
+      const firstParseValue  = parseFloat(firstSecondValue);
+      const firstSecondTotal = firstParseValue + 59;
+
+      document.getElementById("secondMobilePrice").innerText = firstSecondTotal;
+
+      const secondSubTotal = document.getElementById("subTotalPrice").innerText;
+      const parseSubTotal  = parseFloat(secondSubTotal);
+      const secondTotal = parseSubTotal + 59;
+
+      document.getElementById("subTotalPrice").innerText = secondTotal;
+      document.getElementById("totalPrice").innerText = secondTotal;
+
+	})
+
+
+   const btnMinus2 = document.getElementById("btn-minus2");
+	btnMinus2.addEventListener("click",function(){
+
+      const inputValMinus = document.getElementById("inputval2");
+
+      if(inputValMinus.value <=0 && minusValue<=0){
+         inputValMinus.value = 0;
+         minusValue = 0;
+         }
+         else{
+            inputValMinus.value--;
+         };
+
+      const secondMinusValue = document.getElementById("secondMobilePrice").innerText;
+      const secondMinusParseValue  = parseFloat(secondMinusValue);
+      const secondMinusValueTotal = secondMinusParseValue - 59;
+
+      document.getElementById("secondMobilePrice").innerText = secondMinusValueTotal;
+
+      const secondMinusSubTotal = document.getElementById("subTotalPrice").innerText;
+      const parseMinusSubTotalSec  = parseFloat(secondMinusSubTotal);
+      const minusValueSeceond = parseMinusSubTotalSec - 59;
+
+      document.getElementById("subTotalPrice").innerText = minusValueSeceond;
+      document.getElementById("totalPrice").innerText = minusValueSeceond;
+	})
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
