@@ -14,9 +14,9 @@
 
    <section>
       <div class="container">
-         <div class="cart">
+         <div  class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
-               <div class="cart-item">
+               <div id="cart-item-one" class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item">
                         <img src="images/product-1.png" alt="">
@@ -35,7 +35,7 @@
                   </div>
                </div>
 
-               <div class="cart-item">
+               <div id="cart-item-two" class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
                         <img src="images/product-2.png" alt="">
@@ -49,7 +49,7 @@
 
                         </div>
                         <h5>$<span id="secondMobilePrice">59</span></h5>
-                        <img id="removeItemTwo" src="images/remove.png" alt="" class="remove-item2">
+                        <img id="removeItemTwo" src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
@@ -190,7 +190,48 @@
 
 
 
+   const removeItOne  = document.getElementById("removeItemOne");
+   removeItOne.addEventListener("click",function(){
 
+      const cartItemOne  = document.getElementById("cart-item-one");
+      cartItemOne.style.display="none";
+
+
+      const firstSingleValue = document.getElementById("firstMobilePrice").innerText;
+      const firstParseValue  = parseFloat(firstSingleValue);
+
+      const firstSubTotal = document.getElementById("subTotalPrice").innerText;
+      const parseSubTotal  = parseFloat(firstSubTotal);
+
+      const removeTotal =  parseSubTotal-firstParseValue;
+
+
+      document.getElementById("subTotalPrice").innerText= removeTotal;
+      document.getElementById("totalPrice").innerText= removeTotal;
+
+
+   });
+
+   const removeItemTwo  = document.getElementById("removeItemTwo");
+   removeItemTwo.addEventListener("click",function(){
+
+      const cartItemTwo  = document.getElementById("cart-item-two");
+      cartItemTwo.style.display="none";
+
+      const firstSingleValue = document.getElementById("secondMobilePrice").innerText;
+      const firstParseValue  = parseFloat(firstSingleValue);
+
+      const firstSubTotal = document.getElementById("subTotalPrice").innerText;
+      const parseSubTotal  = parseFloat(firstSubTotal);
+
+      const removeTotal =  parseSubTotal-firstParseValue;
+
+      document.getElementById("subTotalPrice").innerText= removeTotal;
+      document.getElementById("totalPrice").innerText= removeTotal;
+
+
+   });
+  
 
 
 
